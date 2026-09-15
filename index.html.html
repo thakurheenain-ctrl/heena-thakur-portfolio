@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heena Thakur | SEO & Growth Strategist</title>
+    <meta name="description" content="Heena Thakur is an SEO & Growth Strategist specializing in SEO, AEO, GEO, Content Strategy, and Lead Generation.">
+    <style>
+        /* CSS VARIABLES & RESET */
+        :root {
+            --bg-color: #f7f7f5;
+            --text-color: #1a1a1a;
+            --accent-color: #d4ff33; /* Lime Green */
+            --border-color: rgba(26, 26, 26, 0.1);
+            --font-display: 'Syne', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* TYPOGRAPHY */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@400;600;700;800&display=swap');
+
+        h1, h2, h3, h4, .display-text {
+            font-family: var(--font-display);
+            text-transform: uppercase;
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        /* ANIMATIONS */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            font-weight: 600;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            border: 1px solid var(--text-color);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--text-color);
+        }
+
+        .btn-secondary {
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            border: 1px solid var(--accent-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: transparent;
+            border-color: var(--text-color);
+        }
+
+        /* NAVIGATION */
+        nav {
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            background: rgba(247, 247, 245, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.5rem;
+            text-decoration: none;
+            color: var(--text-color);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 160px;
+            padding-bottom: 4rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            font-weight: 500;
+            display: inline-block;
+            border: 1px solid var(--text-color);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 7vw, 7rem);
+            margin-bottom: 2rem;
+            letter-spacing: -2px;
+        }
+
+        .hero-keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .hero-keywords span {
+            background: var(--accent-color);
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* SECTIONS GENERAL */
+        section {
+            padding: 8rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-header {
+            margin-bottom: 5rem;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 5rem);
+            letter-spacing: -1px;
+        }
+
+        /* WHAT I DO */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 3rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .service-card h3::before {
+            content: "";
+            display: block;
+            width: 15px;
+            height: 15px;
+            background: var(--accent-color);
+            border-radius: 50%;
+        }
+
+        .service-list {
+            list-style: none;
+        }
+
+        .service-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 1.1rem;
+        }
+
+        /* EXPERIENCE */
+        .experience-item {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .experience-item:first-of-type {
+            border-top: 1px solid var(--border-color);
+        }
+
+        .exp-meta .exp-number {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--accent-color);
+            -webkit-text-stroke: 1px var(--text-color);
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .exp-company {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .exp-role-info {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .exp-details h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .exp-details p, .exp-details ul {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .exp-details ul {
+            padding-left: 1.5rem;
+        }
+
+        .exp-details li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* AI SEARCH SECTION */
+        .ai-search {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+        }
+
+        .ai-search .section-title {
+            color: var(--bg-color);
+        }
+
+        .ai-search-content {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            line-height: 1.4;
+            max-width: 900px;
+        }
+
+        .ai-highlight {
+            color: var(--accent-color);
+        }
+
+        /* PROCESS */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .process-step {
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .process-step:hover {
+            background: var(--text-color);
+            color: var(--bg-color);
+        }
+
+        .process-step:hover .step-num {
+            color: var(--accent-color);
+        }
+
+        .step-num {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .process-step h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* ABOUT ME */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            filter: grayscale(100%);
+            transition: filter 0.5s ease;
+            display: block;
+        }
+
+        .about-image img:hover {
+            filter: grayscale(0%);
+        }
+
+        .about-text p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* CERTIFICATIONS */
+        .cert-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .cert-item {
+            padding: 2rem;
+            background: #fff;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .cert-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-item p {
+            font-size: 0.9rem;
+            color: #666;
+            text-transform: uppercase;
+        }
+
+        /* CTA & FOOTER */
+        .cta-section {
+            text-align: center;
+            background-color: var(--accent-color);
+            padding: 10rem 5%;
+        }
+
+        .cta-section .section-title {
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        footer {
+            padding: 4rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 2rem;
+            background: var(--text-color);
+            color: var(--bg-color);
+        }
+
+        .footer-brand h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: var(--bg-color);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* MEDIA QUERIES */
+        @media (max-width: 900px) {
+            .experience-item, .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .hero-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+            .btn {
+                text-align: center;
+                width: 100%;
+            }
+            section {
+                padding: 5rem 0;
+            }
+            .hero {
+                padding-top: 140px;
+                min-height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">HT.</a>
+        <a href="mailto:thakurheena.in@gmail.com" class="btn btn-primary" style="width: auto;">Let's Talk</a>
+    </nav>
+
+    <!-- 1. HERO -->
+    <section class="hero">
+        <div class="container hero-content reveal">
+            <div class="hero-subtitle">Heena Thakur • SEO & Growth Strategist</div>
+            <h1>I help businesses build visibility across Google, AI search and digital channels—and turn that visibility into growth opportunities.</h1>
+            <div class="hero-keywords">
+                <span>SEO</span>
+                <span>AEO</span>
+                <span>GEO</span>
+                <span>Content Strategy</span>
+                <span>Lead Generation</span>
+                <span>Analytics</span>
+            </div>
+            <div class="hero-actions">
+                <a href="#work" class="btn btn-primary">View My Work</a>
+                <a href="mailto:thakurheena.in@gmail.com" class="btn btn-secondary">Let's Work Together</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. WHAT I DO -->
+    <section id="services">
+        <div class="container reveal">
+            <div class="section-header">
+                <h2 class="section-title">What I Do</h2>
+                <p style="font-size: 1.5rem; max-width: 800px; margin-top: 1rem;">I combine search strategy, content and digital growth to help businesses become easier to discover—and easier to choose.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>SEO</h3>
+                    <ul class="service-list">
+                        <li>Technical SEO</li>
+                        <li>On-page SEO</li>
+                        <li>Keyword research</li>
+                        <li>Website audits</li>
+                        <li>Content optimization</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>AI Search</h3>
+                    <ul class="service-list">
+                        <li>AEO</li>
+                        <li>GEO</li>
+                        <li>AI-search visibility</li>
+                        <li>Structured content</li>
+                        <li>Search intent</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>Content</h3>
+                    <ul class="service-list">
+                        <li>SEO-driven content</li>
+                        <li>Blog strategy</li>
+                        <li>Topic research</li>
+                        <li>Competitor content analysis</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>Growth</h3>
+                    <ul class="service-list">
+                        <li>Lead generation</li>
+                        <li>LinkedIn</li>
+                        <li>Inbound growth</li>
+                        <li>Conversion-focused strategy</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SELECTED WORK / EXPERIENCE -->
+    <section id="work">
+        <div class="container reveal">
+            <div class="section-header">
+                <h2 class="section-title">Selected Experience</h2>
+            </div>
+            
+            <!-- Job 1 -->
+            <div class="experience-item reveal">
+                <div class="exp-meta">
+                    <span class="exp-number">01</span>
+                    <h3 class="exp-company">Sportsbridge Asia</h3>
+                    <div class="exp-role-info">
+                        Lead Coordinator <br>
+                        Singapore <br>
+                        April 2026 – September 2026
+                    </div>
+                </div>
+                <div class="exp-details">
+                    <h4>Overview</h4>
+                    <p>Managing end-to-end lead generation and conversion funnels while aligning brand positioning with sports marketing growth strategy.</p>
+                    <h4>Key Focus Areas</h4>
+                    <ul>
+                        <li>Driving inbound leads via AEO + organic channels.</li>
+                        <li>Optimizing SEO, content & LinkedIn presence.</li>
+                        <li>Building inbound lead funnels.</li>
+                        <li>Optimizing digital presence for sports partnerships & sponsorships.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Job 2 -->
+            <div class="experience-item reveal">
+                <div class="exp-meta">
+                    <span class="exp-number">02</span>
+                    <h3 class="exp-company">FriskaAi</h3>
+                    <div class="exp-role-info">
+                        Digital Marketing Executive <br>
+                        United States <br>
+                        January 2026 – March 2026
+                    </div>
+                </div>
+                <div class="exp-details">
+                    <h4>Overview</h4>
+                    <p>Conducted comprehensive technical, on-page, and off-page SEO audits to improve search engine rankings within the healthcare AI space.</p>
+                    <h4>Strategy & Execution</h4>
+                    <ul>
+                        <li>Implemented strategies to optimize site structure, metadata, internal linking, and schema markup.</li>
+                        <li>Developed and optimized SEO-driven content for the website, blog, and digital assets.</li>
+                        <li>Monitored key metrics (organic traffic, rankings, engagement) using Google Analytics and Search Console.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Job 3 -->
+            <div class="experience-item reveal">
+                <div class="exp-meta">
+                    <span class="exp-number">03</span>
+                    <h3 class="exp-company">PACE INFONET WEB SOLUTIONS</h3>
+                    <div class="exp-role-info">
+                        Search Engine Optimization Specialist <br>
+                        India <br>
+                        September 2025 – January 2026
+                    </div>
+                </div>
+                <div class="exp-details">
+                    <h4>Role Focus</h4>
+                    <p>Executed targeted search engine optimization strategies to enhance digital presence and drive organic growth.</p>
+                </div>
+            </div>
+
+            <!-- Job 4 -->
+            <div class="experience-item reveal">
+                <div class="exp-meta">
+                    <span class="exp-number">04</span>
+                    <h3 class="exp-company">Jobringer</h3>
+                    <div class="exp-role-info">
+                        SEO & Content Marketing Intern <br>
+                        India <br>
+                        May 2025 – September 2025
+                    </div>
+                </div>
+                <div class="exp-details">
+                    <h4>Overview</h4>
+                    <p>Supported organic traffic growth for India's Job Portal through comprehensive website audits and content strategies.</p>
+                    <h4>Work Performed</h4>
+                    <ul>
+                        <li>Implemented strategic keyword planning resulting in improved search engine rankings.</li>
+                        <li>Corrected misleading AI-generated SERP information and secured rankings for competitive user queries.</li>
+                        <li>Utilized SEO tools including SEMrush and Google Keyword Planner for competitor analysis.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. AI SEARCH / AEO / GEO POSITIONING -->
+    <section class="ai-search">
+        <div class="container reveal">
+            <h2 class="section-title">Search is changing.<br>Your strategy should too.</h2>
+            <div class="ai-search-content" style="margin-top: 3rem;">
+                <p>Modern search is moving beyond traditional blue links toward <span class="ai-highlight">AI-assisted discovery</span> and answer-driven experiences.</p>
+                <br>
+                <p>I position brands for this shift through strategic <strong>AEO (Answer Engine Optimization)</strong>, <strong>GEO (Generative Engine Optimization)</strong>, entity-focused optimization, and structuring content designed specifically for discoverability and search intent.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. MY PROCESS -->
+    <section>
+        <div class="container reveal">
+            <div class="section-header">
+                <h2 class="section-title">My Process</h2>
+            </div>
+            <div class="process-grid">
+                <div class="process-step">
+                    <span class="step-num">01 —</span>
+                    <h3>Understand</h3>
+                    <p>Understand the business, audience and market.</p>
+                </div>
+                <div class="process-step">
+                    <span class="step-num">02 —</span>
+                    <h3>Research</h3>
+                    <p>Research search intent, competitors and opportunities.</p>
+                </div>
+                <div class="process-step">
+                    <span class="step-num">03 —</span>
+                    <h3>Strategize</h3>
+                    <p>Build the SEO/content/growth roadmap.</p>
+                </div>
+                <div class="process-step">
+                    <span class="step-num">04 —</span>
+                    <h3>Execute</h3>
+                    <p>Implement the strategy.</p>
+                </div>
+                <div class="process-step">
+                    <span class="step-num">05 —</span>
+                    <h3>Measure</h3>
+                    <p>Monitor performance and identify opportunities.</p>
+                </div>
+                <div class="process-step">
+                    <span class="step-num">06 —</span>
+                    <h3>Improve</h3>
+                    <p>Continuously refine based on data and insights.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. ABOUT ME -->
+    <section id="about">
+        <div class="container reveal">
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="heena%20thakur%20photo%20linkedin.jpeg" alt="Heena Thakur - SEO & Growth Strategist">
+                </div>
+                <div class="about-text">
+                    <h2 class="section-title" style="margin-bottom: 2rem;">About Me</h2>
+                    <p>I am an SEO & Growth Strategist based in the Greater Delhi Area, working across SEO, AEO/GEO, content, analytics and lead generation.</p>
+                    <p>I believe growth is not about traffic—it's about intent + positioning + conversion systems.</p>
+                    <p>With experience spanning the healthcare AI, job portal, and B2B industries, I help brands turn visibility into consistent lead generation using structured growth strategies.</p>
+                    <p style="margin-top: 2rem; font-size: 0.9rem; text-transform: uppercase; font-weight: bold;">
+                        Education: BA English Literature (British and Commonwealth), Indira Gandhi National Open University (IGNOU)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. CERTIFICATIONS -->
+    <section>
+        <div class="container reveal">
+            <div class="section-header">
+                <h2 class="section-title">Certifications</h2>
+            </div>
+            <div class="cert-list">
+                <div class="cert-item">
+                    <h4>McKinsey.Org Forward Online Learning Program</h4>
+                    <p>McKinsey & Company</p>
+                </div>
+                <div class="cert-item">
+                    <h4>Fundamentals of Digital Marketing</h4>
+                    <p>Google Digital Academy</p>
+                </div>
+                <div class="cert-item">
+                    <h4>Digital Marketing Strategy</h4>
+                    <p>Great Learning</p>
+                </div>
+                <div class="cert-item">
+                    <h4>SEO PowerSuite</h4>
+                    <p>Udemy</p>
+                </div>
+                <div class="cert-item">
+                    <h4>Social Media Marketing Bootcamp</h4>
+                    <p>LetsUpgrade</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. FINAL CTA & CONTACT SECTION -->
+    <section id="contact" class="cta-section reveal">
+        <div class="container">
+            <h2 class="section-title">Have a growth problem?</h2>
+            <h3 class="display-text" style="font-size: clamp(2rem, 4vw, 4rem); margin-bottom: 2rem;">Let's find the opportunity.</h3>
+            <p>If you're looking to improve your search visibility, content strategy or inbound lead generation, let's talk.</p>
+            
+            <div style="margin: 3rem 0;">
+                <a href="mailto:thakurheena.in@gmail.com" class="btn btn-primary" style="background: var(--text-color); color: var(--accent-color); border: none; font-size: 1.2rem; padding: 1.5rem 3rem; width: auto;">Let's Work Together →</a>
+            </div>
+
+            <div style="margin-top: 4rem; font-size: 1.2rem; line-height: 2; color: var(--text-color);">
+                <strong>HEENA THAKUR</strong><br>
+                <span style="text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px;">SEO & Growth Strategist</span><br><br>
+                <a href="mailto:thakurheena.in@gmail.com" style="color: var(--text-color); text-decoration: none; border-bottom: 1px solid var(--text-color); margin-right: 1rem;">thakurheena.in@gmail.com</a>
+                <span style="margin-right: 1rem; color: rgba(26,26,26,0.3);">|</span>
+                <a href="https://www.linkedin.com/in/heenathakurseo" target="_blank" rel="noopener noreferrer" style="color: var(--text-color); text-decoration: none; border-bottom: 1px solid var(--text-color);">LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. FOOTER -->
+    <footer>
+        <div class="footer-brand">
+            <h2>HEENA THAKUR</h2>
+            <p style="text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; margin-bottom: 1rem;">SEO & Growth Strategist</p>
+            <p style="color: #999; font-size: 0.8rem;">SEO • AEO • GEO • Content • Lead Generation</p>
+        </div>
+        <div class="footer-links">
+            <a href="https://www.linkedin.com/in/heenathakurseo" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="mailto:thakurheena.in@gmail.com">Email</a>
+        </div>
+        <div style="width: 100%; text-align: left; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); color: #666; font-size: 0.8rem;">
+            &copy; 2026 Heena Thakur. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- INTERACTION SCRIPT -->
+    <script>
+        // Subtle scroll reveal animations
+        document.addEventListener("DOMContentLoaded", () => {
+            const reveals = document.querySelectorAll(".reveal");
+
+            const revealOnScroll = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("active");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                root: null,
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            reveals.forEach(reveal => {
+                revealOnScroll.observe(reveal);
+            });
+        });
+    </script>
+</body>
+</html>
